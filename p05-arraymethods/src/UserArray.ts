@@ -19,8 +19,9 @@ export class UserArray {
     return user;
   }
 
-
-
-
+  // 金額をX倍にする
+  public multiplyMoneyBy(by: number) {
+    this.users.forEach(user => user.multiplyMoneyBy(by));
+  }
 
 }

@@ -5,9 +5,9 @@ export class User {
     this._money = _money;
   }
 
-  // 所持金を2倍にするメソッド
-  public double() {
-    this._money *= 2;
+  // 所持金をX倍にするメソッド
+  public multiplyMoneyBy(by: number) {
+    this._money *= by;
   }
 
   // 所持金をフォーマットして返すメソッド

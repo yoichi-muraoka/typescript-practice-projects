@@ -10,6 +10,11 @@ export class User {
     this._money *= 2;
   }
 
+  // 所持金をフォーマットして返すメソッド
+  public getMoneyWithFormat() {
+    return '$' + this._money.toLocaleString();
+  }
+
   // Getters
   get name() {
     return this._name;

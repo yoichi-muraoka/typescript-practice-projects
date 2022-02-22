@@ -24,7 +24,7 @@ export class User {
 export async function createRandomUser() {
   const res = await fetch('https://randomuser.me/api');
   const data = await res.json();
-  const name = data.results[0];
+  const name = data.results[0].name;
   const money =  Math.floor(Math.random() * 1000000);
-  return new User(name, money);
+  return new User(`${name.title}.${name.first} ${name.last}`, money);
 }

@@ -24,4 +24,19 @@ export class UserArray {
     this.users.forEach(user => user.multiplyMoneyBy(by));
   }
 
+  // 金額でユーザーを絞り込む
+  public searchByMoney(betweenFrom: number, betweenTo: number) {
+    const searchedUsers = [] as User[];
+    this.users.forEach(user => {
+      if(user.money >= betweenFrom && user.money <= betweenTo) {
+        searchedUsers.push(user);
+      }
+    });
+    return searchedUsers;
+  }
+
+  public sortUsersOrderedByMoney() {
+    this.users.sort((user1, user2) => user2.money - user1.money);
+  }
+
 }

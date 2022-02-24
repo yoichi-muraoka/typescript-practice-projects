@@ -7,6 +7,7 @@ const addUserButton = document.getElementById('add-user')! as HTMLButtonElement;
 const doubleButton = document.getElementById('double')! as HTMLButtonElement;
 const showMillionairesButton = document.getElementById('show-millionaires')! as HTMLButtonElement;
 const sortButton = document.getElementById('sort')! as HTMLButtonElement;
+const calculateButton = document.getElementById('calculate-wealth')! as HTMLButtonElement;
 
 // ユーザーの追加
 async function addUser() {
@@ -34,9 +35,9 @@ function sortByRichest() {
   createPersons(userArray.users);
 }
 
-// div.personをクリアする
+// #main内のdivをクリアする
 function clearPersons() {
-  const persons = document.querySelectorAll('.person');
+  const persons = document.querySelectorAll('#main div');
   if(persons != null) [...persons].forEach(person => person.remove());
 }
 
@@ -51,7 +52,16 @@ function createPersons(users: User[]) {
   });
 }
 
+// 合計を表示する
+function showTotal() {
+  document.querySelector('#main div:not(.person)')?.remove();
+  const element = document.createElement('div');
+  element.innerHTML = `<h3>Total Width<strong>${userArray.getTotalWithFormat()}</strong></h3>`;
+  main.appendChild(element);
+}
+
 addUserButton.addEventListener('click', addUser);
 doubleButton.addEventListener('click', doubleMoney);
 showMillionairesButton.addEventListener('click', showMillionaires);
 sortButton.addEventListener('click', sortByRichest);
+calculateButton.addEventListener('click', showTotal);

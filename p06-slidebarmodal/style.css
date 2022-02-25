@@ -4,6 +4,8 @@
   --modal-duration: 1s;
   --primary-color: #30336b;
   --secondary-color: #be2edd;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
 }
 
 * {
@@ -193,4 +195,23 @@ button:focus {
   to {
     opacity: 1;
   }
+}
+
+
+/* フォーム */
+.modal-form .success input {
+  border-color: var(--success-color);
+}
+
+.modal-form .error input {
+  border-color: var(--error-color);
+}
+
+.modal-form small {
+  color: var(--error-color);
+  visibility: hidden;
+}
+
+.modal-form .error small {
+  visibility: visible;
 }
